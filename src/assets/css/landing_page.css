@@ -1,11 +1,251 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&display=swap');
 
-* {
+/* Base Styles */
+body, html {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif; /* Assuming 'Roboto' is imported from Google Fonts */
+    height: 100%;
     box-sizing: border-box;
+    background: #76c6cb;
 }
 
-.welcome {
+footer {
+    max-width: 100vw;
+    background: #FCF0D7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vw;
+    flex-wrap: wrap;
+}
+
+.left, .right {
     font-family: 'DM Sans', sans-serif;
+    color: #2C6C6F;
+    margin: 0;
+    padding: 0;
+}
+
+.left > p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: bold;
+}
+
+.left > ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.right > img {
+    max-width: 80%;
+}
+
+.right > p {
+    max-width: 80%;
+    text-align: center;
+    margin: 0;
+}
+
+/* Background Styles */
+.background {
+    background: linear-gradient(rgba(44, 108, 111, 0.1) 7%, rgba(44, 108, 111, 1) 90%), url(../img/background-landingpage.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+/* Content Container */
+.content {
+    text-align: center;
+    color: #f0f0f0;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5vw 4vw;
+    border-radius: 1rem;
+    max-width: 95vw;
+}
+
+/* Title Styling */
+.title {
+    font-size: clamp(2rem, 8vw, 6vw);
+    font-weight: bold;
+    text-shadow: 0.15em 0.15em 0.5em rgba(255, 255, 255, 0.8), 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Subtitle Styling */
+.subtitle {
+    font-size: clamp(1rem, 5vw, 2.5vw);
+    margin: 1.5rem 0 3rem;
+    line-height: 1.6;
+    max-width: 80vw;
+    color: #e0e0e0;
+    text-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.5);
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Button Styling */
+.button {
+    font-size: clamp(1rem, 3vw, 1.5vw);
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 15vw;
+    min-width: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'DM Sans', sans-serif !important;
+    background-color: #FCF0D7 !important;
+    border-radius: 30px !important;
+    color: #2C6C6F !important;
+    font-weight: 600 !important;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s;
+}
+
+/* Earth and River Section Styles */
+.earth-section, .river-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vw;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Gradient Styles for Desktop and Mobile */
+@media (max-width: 768px) {
+    /* Mobile: gradient from top to bottom */
+    .earth-section {
+        background: linear-gradient(to top, rgba(44, 108, 111, 0.1) 7%, rgba(44, 108, 111, 1) 90%);
+        padding: 4rem 2rem;
+    }
+
+    .river-section {
+        background: linear-gradient(to bottom, rgba(44, 108, 111, 0.1) 7%, rgba(44, 108, 111, 1) 90%);
+        padding: 4rem 2rem;
+    }
+
+    .button {
+        font-size: 4vw;
+        padding: 1rem 1.5rem;
+        width: 60vw;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Tablet & Desktop: alternate gradient directions for sections */
+    .earth-section {
+        background: linear-gradient(to left, rgba(44, 108, 111, 0.1) 7%, rgba(44, 108, 111, 1) 100%);
+        padding: 2rem;
+    }
+
+    .river-section {
+        background: linear-gradient(to right, rgba(44, 108, 111, 0.1) 7%, rgba(44, 108, 111, 1) 100%);
+        padding: 2rem;
+    }
+
+    .earth-section, .river-section {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .subtitle {
+        font-size: 2rem;
+    }
+
+    .button {
+        width: auto;
+        min-width: 10vw;
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .section-paragraph {
+        font-size: 1.5rem;
+    }
+}
+
+/* Text Content */
+.text-content {
+    flex: 1;
+    padding: 4vw;
+    color: #f0f0f0;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    text-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.7);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.section-paragraph {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    text-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.5);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.highlight {
+    background: rgba(159, 209, 140, 0.27);
+    padding: 0px 5px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+/* Image Content */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 90vw;
+    overflow: hidden;
+    height: 100%;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    opacity: 0.85;
+    z-index: -1;
+    border-radius: 15px;
 }
