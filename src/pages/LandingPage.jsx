@@ -7,7 +7,7 @@ import nasaLogo from '../assets/img/spaceappslogo.png'
 import rv1 from '../assets/img/rv1.gif'
 import rv2 from '../assets/img/rv2.jpeg'
 
-function App() {
+function LandingPage() {
     const scrollToPresentation = useRef(null);
     const handleScrollToPresentation = () => {
         scrollToPresentation.current.scrollIntoView({ behavior: 'smooth' })
@@ -83,4 +83,4 @@ function App() {
     );
 }
 
-export default App;
+export default LandingPage;

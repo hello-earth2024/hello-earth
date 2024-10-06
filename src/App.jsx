@@ -1,6 +1,7 @@
 import Quiz from 'react-quiz-component';
 import { quiz } from './assets/quiz';
 import LandingPage from './pages/LandingPage';
+import Chatbot from './pages/Chatbot';
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
       {/* Hello, Earth! We're going on!
       <Quiz quiz={quiz} shuffle={true} /> */}
 
-      <LandingPage />
+      {/* <LandingPage /> */}
+
+        <Chatbot />
     </>
   )
 }
