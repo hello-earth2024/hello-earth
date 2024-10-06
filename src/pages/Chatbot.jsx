@@ -547,7 +547,7 @@ function Chatbot() {
         }
     }
 
-    return <div id="root">
+    return <div className="parent">
         <ChatBot styles={styles} settings={settings} flow={flow} />
     </div>
 }

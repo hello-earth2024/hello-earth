@@ -1,5 +1,3 @@
-import Quiz from 'react-quiz-component';
-import { quiz } from './assets/quiz';
 import LandingPage from './pages/LandingPage';
 import Chatbot from './pages/Chatbot';
 import RedirectToHTML_1 from './components/cesium_component_1';

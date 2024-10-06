@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-#root {
+.parent {
     width: 100vw;
     height: 100vh;
     display: flex;
