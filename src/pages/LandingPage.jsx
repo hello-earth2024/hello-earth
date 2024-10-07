@@ -33,9 +33,17 @@ function LandingPage() {
                     <p className="subtitle">
                         It’s time to navigate into flying rivers to discover how Earth is connected to <span className="highlight">itself and to people.</span>
                     </p>
-                    <Button className="button" onClick={handleScrollToPresentation}>
-                        CHECK IT OUT
-                    </Button>
+                    <div className="button-wrapper">
+                        <Button className="button" onClick={handleScrollToPresentation} sx={{ background: "#2C6C6F !important", color: "#FCF0D7 !important" }}>
+                            LEARN MORE
+                        </Button>
+                        <Button className="button" onClick={() => {window.location.assign("/flyingrivers")}}>
+                            EXPLORE THE FLYING RIVERS
+                        </Button>
+                        <Button className="button" onClick={() => {window.location.assign("/chatbot")}} sx={{ background: "#2C6C6F !important", color: "#FCF0D7 !important" }}>
+                            DIVE INTO A JOURNEY
+                        </Button>
+                    </div>
                 </div>
             </div>
             <div className="earth-section" ref={scrollToPresentation}>

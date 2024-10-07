@@ -30,8 +30,7 @@ function Bubble(props) {
         <div className="message-wrapper">
             <p className="name">{displayName}</p>
             <div className="message">
-                {/* <Typewriter text={props.children} /> */}
-                {props.children}
+                <Typewriter text={props.children} />
             </div>
         </div>
     </motion.div>

@@ -121,15 +121,15 @@ footer > p {
 
 /* Button Styling */
 .button {
-    font-size: clamp(1rem, 3vw, 1.5vw);
-    padding: 1rem;
+    font-size: 1.5vw !important;
+    padding: 1.5em 2em !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 15vw;
     min-width: 120px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'DM Sans', sans-serif !important;
     background-color: #FCF0D7 !important;
-    border-radius: 30px !important;
+    border-radius: 20px !important;
     color: #2C6C6F !important;
     font-weight: 600 !important;
 }
@@ -150,6 +150,13 @@ footer > p {
     min-height: 100vh;
 }
 
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
 /* Gradient Styles for Desktop and Mobile */
 @media (max-width: 768px) {
     /* Mobile: gradient from top to bottom */
@@ -165,8 +172,13 @@ footer > p {
 
     .button {
         font-size: 4vw;
-        padding: 1rem 1.5rem;
+        padding: 1.5rem 3rem !important;
         width: 60vw;
+        font-size: 15px !important;
+    }
+
+    .button-wrapper {
+        flex-direction: column;
     }
 }
 

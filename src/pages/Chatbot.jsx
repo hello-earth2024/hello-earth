@@ -3,6 +3,7 @@ import ChatBot from "react-chatbotify";
 import Bubble from '../components/Bubble';
 import '../assets/css/chatbot.css';
 import Toast from '../components/Toast';
+import { path } from 'framer-motion/client';
 
 function Chatbot() {
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -56,7 +57,7 @@ function Chatbot() {
                 return <div style={{ display: "flex", flexDirection: "column", margin: "auto", marginBottom: 0 }}><Toast name={params.userInput} /></div>
             },
             path: "allan_entrance",
-            transition: 0,
+            transition: 300,
             chatDisabled: true,
         },
         allan_entrance: {
@@ -64,7 +65,7 @@ function Chatbot() {
                 <Toast name="Allan" />
             ),
             path: "olivia_entrance",
-            transition: 0,
+            transition: 300,
             chatDisabled: true,
         },
         olivia_entrance: {
@@ -72,7 +73,7 @@ function Chatbot() {
                 <Toast name="Olivia" />
             ),
             path: "lucas_entrance",
-            transition: 0,
+            transition: 300,
             chatDisabled: true,
         },
         lucas_entrance: {
@@ -80,19 +81,20 @@ function Chatbot() {
                 <Toast name="Lucas" />
             ),
             path: "allan_presentation",
-            transition: 0,
+            transition: 300,
             chatDisabled: true,
         },
         allan_presentation: {
             component: (params) => {
                 name = params.userInput
-                const text = `Nice to meet you ${params.userInput}! I’m Allan, and I’m from a village in the Amazon. For us, the forest is everything, but now… it’s burning more than ever. The fires are out of control, and it feels like the rain has abandoned us. We rely on the river for water, but it’s drying up. I’m here because my community’s survival depends on this forest, and I can’t just watch it disappear.`
+                const text = `Nice to meet you, ${name}! I’m Allan from the Amazon. Our forest is burning like never before, and the river is drying up. My community's survival depends on this forest, and I can't just watch it disappear.
+`
                 return <Bubble name="Allan">
                     {text}
                 </Bubble>
             },
             path: "olivia_presentation",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         olivia_presentation: {
@@ -100,31 +102,35 @@ function Chatbot() {
                 Hi everyone! I’m Olivia, from the Central-West. I run a small farm with my family, and climate change is really making things difficult. The weather’s unpredictable, and it’s messing with our crops. Sometimes we have too much rain, and other times not enough. I’m hoping to learn more about what’s happening in the environment and how we can adapt.
             </Bubble>),
             path: "lucas_presentation",
-            transition: 0,
+            transition: 7000,
             chatDisabled: true,
         },
         lucas_presentation: {
             component: (
                 <Bubble name="Lucas">
-                    Hey guys! I’m Lucas, from the Southeast. I live in São Paulo city, majoring in  Biology and have  much interest in understanding the climate crisis. Recently, my city was ranked as the most polluted city in the world! This situation has caused many health problems, especially respiratory issues. I hope to learn even more from you so that I can think about how we can tackle this health challenge.
+                    Hey guys! I’m Lucas from São Paulo, studying Biology and focused on the climate crisis.
+                    Recently, my city was ranked the most polluted in the world, causing serious health problems, especially respiratory issues. I’m here to learn how we can address this challenge.
                 </Bubble>
             ),
-            path: "a1",
-            transition: 0,
+            path: "me_presentation",
+            transition: 4500,
             chatDisabled: true,
+        },
+        me_presentation: {
+            message: "Tell them how you're glad to meet them!",
+            options: { items: ["It is great meeting you all! Let’s dive into these problems!"], sendOutput: true },
+            chatDisabled: true,
+            path: "a1",
         },
         a1: {
             component: (
                 <Bubble name="Allan">
-                    I know what you mean, Lucas, The air quality has been terrible here too! And Olivia, the droughts? It is too much to handle!
-                    The wildfires are getting worse every year, and the animals we rely on for food and medicine are disappearing.
-                    It’s like the forest is struggling to breathe.
-                    I heard something at school once about “flying rivers.”
-                    You guys know about that?
+                    Yeah, let's do it! It’s like the forest is struggling to breathe, we need to do something!
+                    Have you guys heard about “flying rivers”? I learned about it in school once.
                 </Bubble>
             ),
             path: "l1",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         l1: {
@@ -134,54 +140,34 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "o1",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         o1: {
             component: (
                 <Bubble name="Olivia">
-                    Wait, so you’re telling me that the Amazon affects the rain here in the Central-West? That could explain why the rainfall patterns have been so unpredictable on my farm.
+                    Wait, so you’re telling me that the Amazon affects the rain here in the Central-West? That could explain why the rainfall patterns have been so unpredictable on my farm...
                 </Bubble>
             ),
             path: "a2",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         a2: {
             component: (
                 <Bubble name="Allan">
-                    Yes! That’s what’s happening. When the trees get cut down, there’s less moisture going up into the air. And without that, the flying rivers stop working, which messes with the rain cycles everywhere which then messes with the local temperature and overall climate!
-                </Bubble>
-            ),
-            path: "l2",
-            transition: 0,
-            chatDisabled: true,
-        },
-        l2: {
-            component: (
-                <Bubble name="Lucas">
-                    Exactly, and it doesn’t stop there. When there’s less rain, rivers dry up, like what we’re  seeing with the Paraná River here in São Paulo. That’s probably what’s causing our water shortages. The moisture from the Amazon is supposed to help, but with all the deforestation, it’s barely reaching us.
-                </Bubble>
-            ),
-            path: "o2",
-            transition: 0,
-            chatDisabled: true,
-        },
-        o2: {
-            component: (
-                <Bubble name="Olivia">
-                    So it is all connected! If the Amazon dries out, so do we.
+                    Yes! That’s what’s happening. When the trees get cut down, there’s less moisture going up into the air. And without that, the flying rivers stop working, which messes with the rain cycles everywhere, which then messes with the local temperature and overall climate!
                 </Bubble>
             ),
             path: "q1_enunciado",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         q1_enunciado: {
-            message: "Guys, I got really curious and decided to do some research to understand the impact of these flying rivers. You won’t believe what I found out:",
+            message: "And you? Are you into this subject?:",
             chatDisabled: true,
             path: "q1_r",
-            options: { items: ["The flying rivers from the Amazon reach as far as Argentina, Chile, even Bolivia. If we don’t do something, it’s going to affect the way the entire world functions!", "We can ignore this issue because the earth will self-regulate and it will all be fine!", "The Amazon flying rivers only affects Brazil’s climate, since its closer to the amazon core", "The flying rivers have nothing to do with these climate impacts that we are experiencing"], sendOutput: true }
+            options: { items: ["Yes! That’s what’s happening.", "No, I don't think that’s it."], sendOutput: true }
         },
         q1_r: {
             transition: (params) => {
@@ -191,7 +177,7 @@ function Chatbot() {
                 return { duration: 0 };
             },
             path: (params) => {
-                if (params.userInput != "The flying rivers from the Amazon reach as far as Argentina, Chile, even Bolivia. If we don’t do something, it’s going to affect the way the entire world functions!") {
+                if (params.userInput != "Yes! That’s what’s happening.") {
                     return "q1_errada";
                 } else {
                     return "q1_certa";
@@ -200,63 +186,58 @@ function Chatbot() {
             chatDisabled: true,
         },
         q1_errada: {
-            message: "Nice try! Why don't we focus on the international impact of flying rivers? ",
+            message: "Are you sure? When the trees get cut down, there’s less moisture going up into the air. Could that be something?",
             transition: { duration: 0 },
             path: "q1_enunciado",
             chatDisabled: true,
         },
         q1_certa: {
-            message: "Great!",
+            message: "Great! Let's continue",
             transition: { duration: 0 },
             chatDisabled: true,
-            path: "o3",
+            path: "l2",
         },
-        o3: {
-            component: (
-                <Bubble name="Olivia">
-                    So, it’s not just about saving the Amazon for the people living there. We’re all impacted by it—farmers, cities, even people halfway across the continent.
-                </Bubble>
-            ),
-            path: "l3",
-            transition: 0,
-            chatDisabled: true,
-        },
-        l3: {
+        l2: {
             component: (
                 <Bubble name="Lucas">
-                    And that impacts food production, the economy, everything. If we don’t have water, we can’t farm, and if we can’t farm, we lose our income, our food security…
+                    You are so right! When the trees get cut down, there’s less moisture going up into the air. And without that, the flying rivers stop working, which messes with the rain cycles everywhere, which then messes with the local temperature and overall climate!
+                </Bubble>
+            ),
+            path: "o2",
+            transition: 4500,
+            chatDisabled: true,
+        },
+        o2: {
+            component: (
+                <Bubble name="Olivia">
+                    So, it’s not just about saving the Amazon for the people living there. We’re all impacted by it—farmers, cities, even people halfway across the continent. God, even the entire world!
                 </Bubble>
             ),
             path: "a3",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         a3: {
             component: () => {
-                const text = `That is a great finding, ${name}! This connection truly exists! Look at this data I found about fire hotspots in the Amazon, flying rivers, vegetation cover, temperature, and drought.`
                 return <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
                     <Bubble name="Allan">
-                        {text}
+                        Look at this thing that I found about fire hotspots in the Amazon, flying rivers, vegetation cover, temperature, and drought.
                     </Bubble>
-                    <a href="" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
+                    <a href="/flyingrivers" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
                 </div>
             },
-            path: "o4",
-            transition: 0,
+            path: "me_glad",
+            transition: 4500,
             chatDisabled: true,
         },
-        o4: {
-            component: (
-                <Bubble name="Olivia">
-                    Oh my god! Look at how everything could become! We need to protect it if we want to protect our water, our food, and even our health.
-                </Bubble>
-            ),
-            path: "q2_enunciado",
-            transition: 0,
+        me_glad: {
+            message: "Tell Allan how you have liked his simulation!",
+            options: { items: ["Nice discovery, Allan!"], sendOutput: true },
             chatDisabled: true,
+            path: "q2_enunciado",
         },
         q2_enunciado: {
-            message: "Exactly! Look at how the North and Central-West regions interact through:",
+            message: "Can you answer me a question about interactions? How the North and Central-West regions interact through?",
             chatDisabled: true,
             path: "q2_r",
             options: { items: ["From the drought caused by fires and deforestation in the Amazon, which results in plants releasing less moisture for the formation of flying rivers, thus negatively impacting the rainfall patterns in the Midwest region.", "The flying rivers are underground rivers that connect the Amazon to the Midwest, replenishing aquifers and rivers in the region.", "The flying rivers are wind currents that carry dust from the Midwest to fertilize the soil of the Amazon rainforest.", "The flying rivers are artificial channels created to transport water from the Amazon to the Midwest during periods of drought."], sendOutput: true }
@@ -284,42 +265,44 @@ function Chatbot() {
             chatDisabled: true,
         },
         q2_certa: {
-            message: "Great!",
+            message: "Great! Let's continue",
             transition: { duration: 0 },
             chatDisabled: true,
-            path: "o5",
+            path: "o3",
         },
-        o5: {
-            component: (
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
-                    <Bubble name="Olivia">
-                        This is shocking! In my research, I also found some very interesting information about the rainfall patterns in my region. Check this out:
-                    </Bubble>
-                    <a href="" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
-                </div>
-            ),
-            path: "l4",
-            transition: 0,
+        o3: {
+            component:
+                () => {
+                    return <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
+                        <Bubble name="Olivia">
+                            This is shocking! In my research, I also found some very interesting information about the rainfall patterns in my region. Check this out:
+                        </Bubble>
+                        <a href="/precipitation" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
+                    </div>
+                },
+            path: "l3",
+            transition: 4500,
             chatDisabled: true,
         },
-        l4: {
-            component: (
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
-                    <Bubble name="Lucas">
-                        Guys, and if you think that’s not alarming enough, the CO2 from the fires makes the air even worse. That’s why we’ve been having these awful air quality days in São Paulo. People are getting sick from it. The trees in the Amazon usually help absorb CO2, but without them, we’re just pumping more greenhouse gases into the air. Look at it:
-                    </Bubble>
-                    <a href="" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
-                </div>
-            ),
+        l3: {
+            component:
+                () => {
+                    return <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
+                        <Bubble name="Lucas">
+                            Guys, and if you think that’s not alarming enough, the CO2 from the fires makes the air even worse. That’s why we’ve been having these awful air quality days in São Paulo. People are getting sick from it. The trees in the Amazon usually help absorb CO2, but without them, we’re just pumping more greenhouse gases into the air. Look at it:
+                        </Bubble>
+                        <a href="/carbon" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>Click here to check the simulation out.</strong></a>
+                    </div>
+                },
             path: "q3_enunciado",
-            transition: 0,
+            transition: 6000,
             chatDisabled: true,
         },
         q3_enunciado: {
-            message: "Complete the phrase: So it is safe to say that____",
+            message: "Now it's time to complete the phrase: So it is safe to say that ____",
             chatDisabled: true,
             path: "q3_r",
-            options: { items: ["\"...climate change in the Amazon doesn’t impact major cities like São Paulo; they have different sources of pollution.\"", "\"To guarantee a healthy future for all, we must stop deforestation and protect the flying rivers!\"", "\"The solution is for everyone to wear masks daily\"", "\"If everyone stays at home, we can face this challenge\""], sendOutput: true }
+            options: { items: ["\"We can work on individual problems, since one parameter of climate change doesn’t affect the other\"", "\"Our Earth is Connected! And to guarantee a healthy future for all, we must stop deforestation and protect the flying rivers!\"", "\"...climate change in the Amazon doesn’t impact major cities like São Paulo; they have different sources of pollution.\"", "\"If everyone stays at home, we can face this challenge\""], sendOutput: true }
         },
         q3_r: {
             transition: (params) => {
@@ -329,7 +312,7 @@ function Chatbot() {
                 return { duration: 0 };
             },
             path: (params) => {
-                if (params.userInput != "\"To guarantee a healthy future for all, we must stop deforestation and protect the flying rivers!\"") {
+                if (params.userInput != "\"Our Earth is Connected! And to guarantee a healthy future for all, we must stop deforestation and protect the flying rivers!\"") {
                     return "q3_errada";
                 } else {
                     return "q3_certa";
@@ -338,99 +321,51 @@ function Chatbot() {
             chatDisabled: true,
         },
         q3_errada: {
-            message: "Oops! What if we focus on actions that have a greater impact sinstead?",
+            message: "Oops! What if we focus on actions that have a greater impact instead?",
             transition: { duration: 0 },
             path: "q3_enunciado",
             chatDisabled: true,
         },
         q3_certa: {
-            message: "Great!",
+            message: "Great! Let's continue",
             transition: { duration: 0 },
-            chatDisabled: true,
-            path: "god1",
-        },
-        god1: {
-            message: "Alright, everyone, we’ve talked a lot about the climate interconnections in Brazil and how everything is connected—from the Amazon rainforest to the big cities. How do you think we can share this with more people?",
-            transition: 0,
             chatDisabled: true,
             path: "a4",
         },
         a4: {
             component: (
                 <Bubble name="Allan">
-                    I feel like we can’t stop here. Everything we’ve discussed… it’s so important! If more people understood the connection between what’s happening in the rainforest and what we’re experiencing in other parts of world, maybe we could get even more support to protect the environment.
+                    I feel like we can’t stop here. Everything we’ve discussed… It's so important! If more people need to understand this!
                 </Bubble>
             ),
-            path: "o6",
-            transition: 0,
+            path: "o4",
+            transition: 4500,
             chatDisabled: true,
         },
-        o6: {
+        o4: {
             component: (
                 <Bubble name="Olivia">
-                    I agree! What if we created a website? Where we could show the data and explanations we found. With graphics, videos, and stories. Because, honestly, I didn’t know how much deforestation in the Amazon affected rainfall in my region until I talked to you all...
+                    What if... we created a website? Where we could show the data and explanations we found. With graphics, videos, and stories.
                 </Bubble>
             ),
-            path: "l5",
-            transition: 0,
+            path: "l4",
+            transition: 4500,
             chatDisabled: true,
         },
-        l5: {
+        l4: {
             component: (
-                <Bubble name="Lucas">
-                    Yes! And I also think many people don’t understand how much this impacts even big cities, like São Paulo. We could make something accessible and interactive, where people can really feel these connections. Like… a place where the audience can explore the impact of what’s happening here in the Amazon and how it’s felt elsewhere.
-                </Bubble>
+                    <Bubble name="Lucas">
+                        YES!! Let’s do it! What should we call it?
+                    </Bubble>
             ),
-            path: "a5",
-            transition: 0,
+            path: "me_proposal",
+            transition: 4500,
             chatDisabled: true,
         },
-        a5: {
-            component: (
-                <Bubble name="Allan">
-                    Yeah, because seeing the numbers and reading scientific articles doesn’t always help. But if we create a visual experience… something that shows how the fires are causing climate changes, affecting rivers, and even impacting our health, people could feel the impact, you know?
-                </Bubble>
-            ),
-            path: "o7",
-            transition: 0,
-            chatDisabled: true,
-        },
-        o7: {
-            component: (
-                <Bubble name="Olivia">
-                    And we could also include stories from our communities! Show what it’s like to live in these regions, what we’re facing, and connect that to the “flying rivers,” the effects of deforestation, the fires. I think people from outside need to hear our voices too, not just see numbers and satellite images.
-                </Bubble>
-            ),
-            path: "god2",
-            transition: 0,
-            chatDisabled: true,
-        },
-        god2: {
-            message: "I think we’re onto something big here! What do you think of calling the site:",
-            transition: 0,
-            chatDisabled: true,
-            path: "god3",
-        },
-        god3: {
-            message: "...",
-            transition: 0,
-            chatDisabled: true,
-            path: "god4",
-        },
-        god4: {
-            message: "Hello, Earth!",
-            transition: 0,
-            chatDisabled: true,
-            path: "a6",
-        },
-        a6: {
-            component: (
-                <Bubble name="Allan">
-                    “Hello, Earth!”… I like it! It’s a friendly name that draws people in. The idea would be to greet the planet and, at the same time, invite people to explore these connections we’ve discussed.
-                </Bubble>
-            ),
+        me_proposal: {
+            message: "Which name do you suggest for the project?",
+            options: { items: ["Hello, Earth!"], sendOutput: true },
             path: "sci_entrance",
-            transition: 0,
             chatDisabled: true,
         },
         sci_entrance: {
@@ -438,7 +373,7 @@ function Chatbot() {
                 <Toast name="A Futurist Scientist" />
             ),
             path: "a7",
-            transition: 0,
+            transition: 300,
             chatDisabled: true,
         },
         a7: {
@@ -448,7 +383,7 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "o8",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         o8: {
@@ -458,7 +393,7 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "l6",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         l6: {
@@ -468,35 +403,35 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "god5",
-            transition: 0,
+            transition: 4500,
             chatDisabled: true,
         },
         god5: {
             message: "...",
-            transition: 0,
+            transition: 1500,
             chatDisabled: true,
             path: "god6",
         },
         god6: {
             message: "...",
-            transition: 0,
+            transition: 1500,
             chatDisabled: true,
             path: "god7",
         },
         god7: {
             message: "...",
-            transition: 0,
+            transition: 1500,
             chatDisabled: true,
             path: "sci_1",
         },
         sci_1: {
             component: (
                 <Bubble name="Sci">
-                    Hello to everyone involved in the “Hello, Earth!” project... My name is ******, and I’m a scientist living in the year ******. It feels surreal, but I’ve finally found a way to reach out to the past..
+                    Hello to everyone involved in the “Hello, Earth!” project... My name is ******, and I’m a scientist living in the year ******. It feels surreal, but I’ve finally found a way to reach out to the past...
                 </Bubble>
             ),
             path: "sci_2",
-            transition: 0,
+            transition: 5000,
             chatDisabled: true,
         },
         sci_2: {
@@ -506,7 +441,7 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "sci_3",
-            transition: 0,
+            transition: 20000,
             chatDisabled: true,
         },
         sci_3: {
@@ -516,30 +451,30 @@ function Chatbot() {
                 </Bubble>
             ),
             path: "sci_4",
-            transition: 0,
+            transition: 8000,
             chatDisabled: true,
         },
         sci_4: {
             component: (
                 <Bubble name="Sci">
-                    Hold on to the hope found in crucial actions, like the UN Sustainable Development Goals. If you fail to act IMMEDIATELY on SDGs 13 and 15, the ripple effects will shatter all other goals, especially 2, 3, and 6. And remember, your individual actions matter... Embrace the “3Rs”: Reduce, Reuse, and Recycle; conserve energy; save water; choose sustainable transportation; engage in conscious consumption; participate in community initiatives; educate others and raise awareness; advocate for political change; and adopt sustainable technologies. Each of these small, compassionate actions, when woven together, holds the power to change the course of our collective future.
+                    Hold on to the hope found in crucial actions as a way to globally act upon this issue, as brought by UN SDGs. If we fail to act immediately on this global call to end poverty, protect the environment and climate, and ensure that people everywhere can enjoy peace and prosperity, we risk losing everything. Remember, your individual actions matter. Embrace the “3Rs” — Reduce, Reuse, and Recycle; conserve energy; save water; choose sustainable transportation; engage in conscious consumption; participate in community initiatives; educate others and raise awareness; advocate for political change; and adopt sustainable technologies. Each of these small, compassionate actions, when woven together, holds the power to change the course of our collective future.
                 </Bubble>
             ),
             path: "sci_5",
-            transition: 0,
+            transition: 15000,
             chatDisabled: true,
         },
         sci_5: {
             component: (
                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: "1em", width: "100%" }}>
                     <Bubble name="Sci">
-                        Here is my heartfelt plea... No matter how insurmountable the challenges may seem, always remember to lift your gaze from your feet and look at the world around you. Seek meaning in the beauty and the struggle that surrounds you, and ask yourself how it connects to the intricate web of life, the system of systems that is our planet. Do not lose hope.
+                    Here is my heartfelt plea... No matter how insurmountable the challenges may seem, always remember to lift your gaze from your feet and look at the world around you. Seek meaning in the beauty and the struggle that surrounds you, and ask yourself how it connects to the intricate web of life, the system of systems that is our planet. Do not lose hope. 
                     </Bubble>
-                    <a href="" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>This is the end of our talking, dear friend. Click here to know more about us.</strong></a>
+                    <a href="/" target='blank' style={{ textAlign: "center", padding: "15px", color: "#ffffff", background: "#2C6C6F", borderRadius: "1em", boxShadow: "0 20px 10px rgba(0, 0, 0, 0.2)", display: "block" }}><strong>This is the end of our talking, dear friend. Click here to know more about us.</strong></a>
                 </div>
             ),
             path: "end",
-            transition: 0,
+            transition: 7500,
             chatDisabled: true,
         },
         end: {
