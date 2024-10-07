@@ -35,7 +35,7 @@ const RedirectToHTML_1 = () => {
         <div style={popupStyle}>
           <div style={isMobile ? popupContentStyleMobile : popupContentStyle}>
             <p style={{ color: "black", fontSize: isMobile ? "14px" : "18px", marginBottom: "20px" }}>
-            This visualization shows the rain and snow rates in millimeters per hour (mm/hr). The values are estimated by the IMERG algorithm (Integrated Multi-satellite Retrievals for Global Precipitation Measurement).
+            This visualization shows rainfall and snowfall rates in millimeters per hour (mm/hr). The values are estimated by the IMERG (Integrated Multi-satellitE Retrievals for Global Precipitation Measurement) algorithm, which uses data from the GPM (Global Precipitation Measurement) satellite constellation, a joint mission of JAXA, the Japanese national air and space agency, and NASA, as well as other international space agencies.
             </p> 
             <p style={{ color: "black", fontSize: isMobile ? "14px" : "18px", marginBottom: "20px" }}>
               The explorer offers several features:

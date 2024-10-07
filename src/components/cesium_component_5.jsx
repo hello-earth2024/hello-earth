@@ -35,7 +35,7 @@ const RedirectToHTML_5 = () => {
         <div style={popupStyle}>
           <div style={isMobile ? popupContentStyleMobile : popupContentStyle}>
             <p style={{ color: "black", fontSize: isMobile ? "14px" : "18px", marginBottom: "20px" }}>
-            This visualization shows the rain and snow rates in millimeters per hour (mm/hr). The values are estimated by the IMERG algorithm (Integrated Multi-satellite Retrievals for Global Precipitation Measurement).
+            This visualization shows the monthly average air temperature at a height of 2 meters (just over 3 feet). It is created from the data collection in the Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERRA-2), a global atmospheric reanalysis produced by NASA's Global Modeling and Assimilation Office (GMAO), providing data from 1980 to the present.
             </p> 
             <p style={{ color: "black", fontSize: isMobile ? "14px" : "18px", marginBottom: "20px" }}>
               The explorer offers several features:
