@@ -37,7 +37,7 @@ function LandingPage() {
                         <Button className="button" onClick={handleScrollToPresentation} sx={{ background: "#2C6C6F !important", color: "#FCF0D7 !important" }}>
                             LEARN MORE
                         </Button>
-                        <Button className="button" onClick={() => {window.location.assign("/flyingrivers")}}>
+                        <Button className="button" onClick={() => {window.location.assign("/precipitation")}}>
                             EXPLORE THE FLYING RIVERS
                         </Button>
                         <Button className="button" onClick={() => {window.location.assign("/chatbot")}} sx={{ background: "#2C6C6F !important", color: "#FCF0D7 !important" }}>
